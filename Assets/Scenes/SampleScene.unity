@@ -119,6 +119,131 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &152680040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 152680045}
+  - component: {fileID: 152680044}
+  - component: {fileID: 152680043}
+  - component: {fileID: 152680042}
+  m_Layer: 0
+  m_Name: CarFollowerCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &152680042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152680040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38bda98361e1de48a4ca2bd86ea3c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Composition:
+    ScreenPosition: {x: 0, y: 0}
+    DeadZone:
+      Enabled: 0
+      Size: {x: 0.2, y: 0.2}
+    HardLimits:
+      Enabled: 0
+      Size: {x: 0.8, y: 0.8}
+      Offset: {x: 0, y: 0}
+  CenterOnActivate: 1
+  TargetOffset: {x: 0, y: 0, z: 3}
+  Damping: {x: 0, y: 0}
+  Lookahead:
+    Enabled: 0
+    Time: 0
+    Smoothing: 0
+    IgnoreY: 0
+--- !u!114 &152680043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152680040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TrackerSettings:
+    BindingMode: 1
+    PositionDamping: {x: 1, y: 1, z: 1}
+    AngularDampingMode: 0
+    RotationDamping: {x: 1, y: 1, z: 1}
+    QuaternionDamping: 1
+  FollowOffset: {x: 0, y: 10, z: -15}
+--- !u!114 &152680044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152680040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority:
+    Enabled: 0
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 521758461}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 60
+    OrthographicSize: 5
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
+--- !u!4 &152680045
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152680040}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.2508413, y: -0.00000004079934, z: 0.00000001057217, w: 0.96802825}
+  m_LocalPosition: {x: 0, y: 10, z: -15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &204727078
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +438,7 @@ GameObject:
   - component: {fileID: 393584258}
   - component: {fileID: 393584257}
   - component: {fileID: 393584256}
+  - component: {fileID: 393584260}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -431,13 +557,45 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393584255}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.17785881, y: 0.24709101, z: -0.046191894, w: -0.9514088}
-  m_LocalPosition: {x: 2.827805, y: 2.4848065, z: -3.3914785}
+  m_LocalRotation: {x: 0.2508413, y: -0.00000004079934, z: 0.000000010572171, w: 0.96802825}
+  m_LocalPosition: {x: 0, y: 10, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &393584260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393584255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowDebugText: 0
+  ShowCameraFrustum: 1
+  IgnoreTimeScale: 0
+  WorldUpOverride: {fileID: 0}
+  ChannelMask: -1
+  UpdateMethod: 2
+  BlendUpdateMethod: 1
+  LensModeOverride:
+    Enabled: 0
+    DefaultMode: 2
+  DefaultBlend:
+    Style: 1
+    Time: 2
+    CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  CustomBlends: {fileID: 0}
 --- !u!1 &521758459
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,7 +862,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 521758460}
           m_TargetAssemblyTypeName: Car, Assembly-CSharp
-          m_MethodName: Steer
+          m_MethodName: CaptureSteering
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -720,7 +878,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 521758460}
           m_TargetAssemblyTypeName: Car, Assembly-CSharp
-          m_MethodName: Steer
+          m_MethodName: CaptureSteering
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -825,7 +983,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 521758460}
           m_TargetAssemblyTypeName: Car, Assembly-CSharp
-          m_MethodName: Steer
+          m_MethodName: CaptureSteering
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -841,7 +999,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 521758460}
           m_TargetAssemblyTypeName: Car, Assembly-CSharp
-          m_MethodName: Steer
+          m_MethodName: CaptureSteering
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -880,7 +1038,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.398, z: 0}
-  m_LocalScale: {x: 1.1109016, y: 0.58739, z: 4.388}
+  m_LocalScale: {x: 1.1109016, y: 0.26, z: 4.388}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 521758461}
@@ -968,3 +1126,4 @@ SceneRoots:
   - {fileID: 521758461}
   - {fileID: 204727082}
   - {fileID: 315106828}
+  - {fileID: 152680045}
