@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Car : MonoBehaviour
 {
@@ -42,5 +43,13 @@ public class Car : MonoBehaviour
     private void IncreaseAcceleration()
     {
         acceleration += accelerationGain;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Obstacle"))
+        {
+            SceneManager.LoadSceneAsync("Scene_MainMenu");
+        }
     }
 }
