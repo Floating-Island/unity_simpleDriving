@@ -7,6 +7,8 @@ public class ScoreSystem : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private float scoreGain = 1f;
 
+    public const string highScoreKey = "Key_HighScore";
+
     private float score;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,9 +24,24 @@ public class ScoreSystem : MonoBehaviour
         DisplayScore();
     }
 
+    private void OnDestroy()
+    {
+        int currentHighScore = PlayerPrefs.GetInt(highScoreKey, 0);
+        int gameScore = GetScore();
+        if (gameScore > currentHighScore)
+        {
+            PlayerPrefs.SetInt(highScoreKey, gameScore);
+        }
+    }
+
     private void DisplayScore()
     {
-        scoreText.text = Mathf.FloorToInt(score).ToString();
+        scoreText.text = GetScore().ToString();
+    }
+
+    private int GetScore()
+    {
+        return Mathf.FloorToInt(score);
     }
 
     private void IncreaseScore()
