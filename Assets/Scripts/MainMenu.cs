@@ -20,14 +20,19 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        string savedHighScore = PlayerPrefs.GetInt(ScoreSystem.highScoreKey, 0).ToString();
-        highScoreText.text = $"High Score: {savedHighScore}";
+        DisplayHighScore();
         LoadEnergyRemaining();
 
         RestoreEnergy();
         UpdatePlayButtonText();
 
         InvokeRepeating("UpdateEnergyStatus", updateEnergyStatusFirstDelaySeconds, updateEnergyStatusIntervalSeconds);
+    }
+
+    private void DisplayHighScore()
+    {
+        string savedHighScore = PlayerPrefs.GetInt(ScoreSystem.highScoreKey, 0).ToString();
+        highScoreText.text = $"High Score: {savedHighScore}";
     }
 
     private void UpdateEnergyStatus()
