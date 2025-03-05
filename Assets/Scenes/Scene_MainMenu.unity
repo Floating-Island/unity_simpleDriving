@@ -1017,7 +1017,7 @@ MonoBehaviour:
   iosNotificationHandler: {fileID: 1246566383}
   highScoreText: {fileID: 450723631}
   playButtonText: {fileID: 190798953}
-  playButton: {fileID: 0}
+  playButton: {fileID: 1028887983}
   maxEnergy: 3
   energyRechargeDelayMinutes: 1
 --- !u!114 &1246566382
