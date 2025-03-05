@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
     private int energyRemaining;
 
     private const int updateEnergyStatusIntervalSeconds = 5;
-    private const int updateEnergyStatusFirstDelaySeconds = 3;
+    private const int updateEnergyStatusFirstDelaySeconds = 0;
 
     private const string energyRemainingKey = "Key_EnergyRemaining";
     private const string energyReadyTimeKey = "Key_EnergyReadyTime";
@@ -24,9 +24,6 @@ public class MainMenu : MonoBehaviour
     {
         DisplayHighScore();
         LoadEnergyRemaining();
-
-        RestoreEnergy();
-        UpdatePlayButtonText();
 
         InvokeRepeating("UpdateEnergyStatus", updateEnergyStatusFirstDelaySeconds, updateEnergyStatusIntervalSeconds);
     }
