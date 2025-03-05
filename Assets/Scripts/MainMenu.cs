@@ -28,6 +28,14 @@ public class MainMenu : MonoBehaviour
         MenuSetup();
     }
 
+    private void OnApplicationFocus(bool focusStatus)
+    {
+        if (focusStatus)
+        {
+            MenuSetup();
+        }
+    }
+
     private void MenuSetup()
     {
         CancelInvoke(nameof(UpdateEnergyStatus));
