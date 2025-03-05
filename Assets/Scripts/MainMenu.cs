@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private IOSNotificationHandler iosNotificationHandler;
     [SerializeField] private TMP_Text highScoreText;
     [SerializeField] private TMP_Text playButtonText;
+
+    [SerializeField] private Button playButton;
     [SerializeField] private int maxEnergy;
     [SerializeField] private float energyRechargeDelayMinutes;
 
@@ -22,10 +25,17 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        MenuSetup();
+    }
+
+    private void MenuSetup()
+    {
+        CancelInvoke(nameof(UpdateEnergyStatus));
+
         DisplayHighScore();
         LoadEnergyRemaining();
 
-        InvokeRepeating("UpdateEnergyStatus", updateEnergyStatusFirstDelaySeconds, updateEnergyStatusIntervalSeconds);
+        InvokeRepeating(nameof(UpdateEnergyStatus), updateEnergyStatusFirstDelaySeconds, updateEnergyStatusIntervalSeconds);
     }
 
     private void DisplayHighScore()
@@ -38,11 +48,17 @@ public class MainMenu : MonoBehaviour
     {
         RestoreEnergy();
         UpdatePlayButtonText();
+        UpdatePlayButtonBehaviour();
     }
 
     private void UpdatePlayButtonText()
     {
         playButtonText.text = $"Play ({energyRemaining})";
+    }
+
+    private void UpdatePlayButtonBehaviour()
+    {
+        playButton.interactable = energyRemaining != 0;
     }
 
     private void RestoreEnergy()
