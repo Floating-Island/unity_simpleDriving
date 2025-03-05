@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private AndroidNotificationHandler androidNotificationHandler;
+    [SerializeField] private IOSNotificationHandler iosNotificationHandler;
     [SerializeField] private TMP_Text highScoreText;
     [SerializeField] private TMP_Text playButtonText;
     [SerializeField] private int maxEnergy;
@@ -83,6 +84,9 @@ public class MainMenu : MonoBehaviour
             PlayerPrefs.SetString(energyReadyTimeKey, energyReadyTime.ToString());
 #if UNITY_ANDROID
             androidNotificationHandler.ScheduleNotification(energyReadyTime);
+#endif
+#if UNITY_IOS
+            iosNotificationHandler.ScheduleNotification(energyReadyTime);
 #endif
         }
 
