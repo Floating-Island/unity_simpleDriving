@@ -1012,6 +1012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23be75082cc8704e8c79421b42ab12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  androidNotificationHandler: {fileID: 1246566382}
   highScoreText: {fileID: 450723631}
   playButtonText: {fileID: 190798953}
   maxEnergy: 3

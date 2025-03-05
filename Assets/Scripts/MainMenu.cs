@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private AndroidNotificationHandler androidNotificationHandler;
     [SerializeField] private TMP_Text highScoreText;
     [SerializeField] private TMP_Text playButtonText;
     [SerializeField] private int maxEnergy;
@@ -80,6 +81,9 @@ public class MainMenu : MonoBehaviour
         {
             DateTime energyReadyTime = DateTime.Now.AddMinutes(energyRechargeDelayMinutes);
             PlayerPrefs.SetString(energyReadyTimeKey, energyReadyTime.ToString());
+#if UNITY_ANDROID
+            androidNotificationHandler.ScheduleNotification(energyReadyTime);
+#endif
         }
 
         SceneManager.LoadScene("Scene_Game");
